@@ -1,0 +1,50 @@
+<section class="artistpage">
+<!-- Encapsulated into a section, essentially modularizing it c: -->
+    <!-- Constructs a form to control the list ALL IN A PARTIAL HTML SNIPPET-->
+    <div class="search">
+        <h1>Artist Directory</h1>
+        <label class="formgroup">Search:</label>
+        <input type="text" placeholder="Search for Artists" autofocus ng-model="query">
+        <!-- Autofocus sets cursor automatically to that input. Neat -->
+        <!-- Also, named this input as an angular model named "query" -->
+        <label class="formgroup">
+    <select ng-model="artistOrder"><!-- Dropdown menu tag!-->
+      <option value="name" selected>Name</option>
+      <option value="reknown">Reknown</option>
+    </select>
+  </label>
+
+        <label class="formgroup">
+    <input type="radio" name="direction" checked
+    ng-model="direction"><!-- indented to show distinction easily between angular and html attributes -->
+    Ascending
+  </label>
+
+        <label class="formgroup">
+  <input type="radio" name="direction" value="reverse"
+  ng-model="direction">
+  Descending
+  </label>
+
+    </div>
+    <ul class="artistlist">                             <!-- query being the search bar! -->
+        <!-- subject for loop to filter coming from ng model query!! Dynamically! Triple filtered -->
+        <li ng-animate="animate" class="artist cf" ng-repeat="item in artists | filter: query | orderBy: artistOrder:direction">
+            <!-- for loop retrieving items from the artists array -->
+            <!-- classed with two different classes, runs a for loop! :o  looks for items in artists array,-->
+            <!--  just a placeholder, could call item "penguin" too! Put it into an "item" object one at a time -->
+            <a href="#!/details/{{artists.indexOf(item)}}">
+            <!-- Angular route, anchor tagged to picture and words-->
+            <img ng-src="images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}" />
+            <!-- use angular expression to put in item.shortname field! still in the for loop! -->
+            <!-- ng-src Wait be sure to get angular library before resolving -->
+            <div class="info">
+                <h2>{{item.name}}</h2>
+                <!-- Not or, just a "filter" to transform all item names into uppercase string data -->
+                <h3>{{item.reknown}}</h3>
+            </div>
+            </a>
+        </li>
+        <!-- End for loop-->
+    </ul>
+</section>

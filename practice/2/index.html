@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<!-- points at myApp in controllers.js-->
+<head>
+    <script src="lib/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Angular Demo</title>
+</head>
+<body>
+<div ng-controller="MyController">
+  <!-- Calling controller from controllers.js, and pulling everything available from JUST THAT SCOPE -->
+  <h1>{{author.name}}</h1>
+  <!-- Angular expression {{}} to pull author.name from object in controllers.js -->
+  <p>{{author.title + ', ' + author.company}}</p>
+  <!-- Also pulling from object in controller and constructing paragraph on the fly -->
+</div>
+</body>
+</html>

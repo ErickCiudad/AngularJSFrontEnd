@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<!-- points at myApp in controllers.js-->
+<!-- Keeps index html nice and clean by only spawning the html we need for -->
+<!-- the moment in a deep link -->
+<head>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+    <script src="lib/angular/angular-animate.min.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Angular Demo</title>
+</head>
+
+<body>
+    <div class="main" ng-view></div>
+</body>
+<!-- esprima.org syntax validator -->
+</html>
